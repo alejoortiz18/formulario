@@ -8,18 +8,24 @@ import java.util.ArrayList;
  * @author reisa
  */
 public class Datos {
-    //=====PREGUNTA UNO======
+ //=========PREGUNTA 1 20%============
     //for(int i=5;i>=1;i--){ System.out.println(i);} (ChkPreg1)
-    public boolean Pregunta1_1;
+    public boolean Pregunta1_1=false;
     //for(int i=5;i>0;i--){ System.out.println(i);}  (ChkPreg2)  
-    public boolean Pregunta1_2;
-    //======PREGUNTA 2 =========
+    public boolean Pregunta1_2=false;
+    //mala
+    public boolean Pregunta1_3=false;
+    //mala
+    public boolean Pregunta1_4=false;
+
+    
+//==============PREGUNTA 2 20%=========
     //Ninguna de las anteriores (Rbt4)
-    public boolean Pregunta2;
-    //======PREGUNTA 3==========
+    public boolean Pregunta2=false;
+//==============PREGUNTA 3 20%==========
     //Error al dividir por cero (ChkOpt3)
-    public boolean Pregunta3;
-    //======PREGUNTA 4===========
+    public boolean Pregunta3=false;
+//==============PREGUNTA 4 25%===========
     //int,float,double,String
     public boolean p4SelectInt=false;
     public boolean p4SelectFloat=false;
@@ -27,20 +33,36 @@ public class Datos {
     public boolean p4SelectString=false;
     ArrayList<String> arraysP4;
 
-    //======PREGUNTA 5==============
+//================PREGUNTA 5 15%==============
     //LblOption1 = Cbox1-LblRespuesta1
     //LblOption2 = Cbox2-LblRespuesta2
     //LblOption3 = Cbox3-LblRespuesta3
     //LblOption4 = Cbox4-LblRespuesta4
     //LblOption5 = Cbox5-LblRespuesta5
 
-    public boolean javais;
-    public boolean polimorfismoHerencia;
-    public boolean objeto;
-    public boolean pausaEjecucion;
-    public boolean rvoid;
+    public boolean javais=false;
+    public boolean polimorfismoHerencia=false;
+    public boolean objeto=false;
+    public boolean pausaEjecucion=false;
+    public boolean rvoid=false;
     ArrayList<String> arraysP5;
 
+    public boolean getPregunta1_3() {
+        return Pregunta1_3;
+    }
+
+    public void setPregunta1_3(boolean Pregunta1_3) {
+        this.Pregunta1_3 = Pregunta1_3;
+    }
+
+    public boolean getPregunta1_4() {
+        return Pregunta1_4;
+    }
+
+    public void setPregunta1_4(boolean Pregunta1_4) {
+        this.Pregunta1_4 = Pregunta1_4;
+    }    
+    
     
     public ArrayList<String> getArraysP5() {
         return arraysP5;

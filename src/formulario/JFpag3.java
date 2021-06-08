@@ -240,7 +240,6 @@ public class JFpag3 extends javax.swing.JFrame {
     private void BtnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSiguienteActionPerformed
         int itemCount = list.getSize();
         
-
         if(itemCount==0){
             LblMesaje.setText("Ingresa al menos una respuesta ");
         }else{

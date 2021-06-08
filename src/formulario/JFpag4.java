@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
  *
  * @author reisa
  */
-public class JFpag4 extends javax.swing.JFrame {
+public class JFpag4 extends javax.swing.JFrame{
     Ventanas ventana = new Ventanas(this);
    Datos dato = new Datos();
     int itemIndexBox1=0;
@@ -30,6 +30,7 @@ public class JFpag4 extends javax.swing.JFrame {
     String cob3="-";
     String cob4="-";
     String cob5="-";
+    JFpagFinal pagFinal;
 
    // DefaultComboBoxModel model = new DefaultComboBoxModel();
     //======OBTENER OBJETOS =========
@@ -73,6 +74,7 @@ public class JFpag4 extends javax.swing.JFrame {
         BtnAtras = new javax.swing.JButton();
         LblMensaje = new javax.swing.JLabel();
         LblNombre = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(600, 537));
@@ -178,7 +180,7 @@ public class JFpag4 extends javax.swing.JFrame {
 
         BtnTerminar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         BtnTerminar.setForeground(new java.awt.Color(0, 102, 51));
-        BtnTerminar.setText("-->");
+        BtnTerminar.setText("Terminar");
         BtnTerminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnTerminarActionPerformed(evt);
@@ -200,6 +202,9 @@ public class JFpag4 extends javax.swing.JFrame {
 
         LblNombre.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
 
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel3.setText("Pregunta 5");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -208,15 +213,13 @@ public class JFpag4 extends javax.swing.JFrame {
                 .addGap(102, 102, 102)
                 .addComponent(BtnAtras)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BtnTerminar, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BtnTerminar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(99, 99, 99))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 507, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 507, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(107, 107, 107)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 507, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(42, 42, 42)
                         .addComponent(LblPag1)
@@ -260,8 +263,13 @@ public class JFpag4 extends javax.swing.JFrame {
                                     .addComponent(LblRespuesta5)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(138, 138, 138)
-                        .addComponent(LblMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(17, Short.MAX_VALUE))
+                        .addComponent(LblMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(72, 72, 72)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 507, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -272,9 +280,11 @@ public class JFpag4 extends javax.swing.JFrame {
                     .addComponent(LblNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(31, 31, 31)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -558,6 +568,8 @@ public class JFpag4 extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnAtrasActionPerformed
 
     private void BtnTerminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTerminarActionPerformed
+       
+       
        String RtaJCbox1 =JCbox1.getSelectedItem().toString();
        String RtaJCbox2 =JCbox2.getSelectedItem().toString();
        String RtaJCbox3 =JCbox3.getSelectedItem().toString(); 
@@ -584,6 +596,9 @@ public class JFpag4 extends javax.swing.JFrame {
            if("5".equals(RtaJCbox5)){
                dato.setRvoid(true);
            }
+           
+           
+           //pagFinal = new JFpagFinal(nombreUsuario, p1);
        }
     }//GEN-LAST:event_BtnTerminarActionPerformed
 
@@ -974,5 +989,6 @@ public class JFpag4 extends javax.swing.JFrame {
     private javax.swing.JLabel LblRespuesta5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }

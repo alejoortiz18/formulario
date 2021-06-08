@@ -223,6 +223,8 @@ public class JFPag1 extends javax.swing.JFrame {
                 Datos data = new Datos();
                 data.setPregunta1_1(ChkPreg1.isSelected());
                 data.setPregunta1_2(ChkPreg2.isSelected());
+                data.setPregunta1_3(ChkPreg3.isSelected());
+                data.setPregunta1_4(ChkPreg4.isSelected());
                 data.setPregunta2(Rbt4.isSelected());
                 ventana.ocutarVentana();
                 ventana.abrirVentana(pag2);

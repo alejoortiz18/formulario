@@ -14,9 +14,11 @@ import javax.swing.JOptionPane;
 public class JFPag1 extends javax.swing.JFrame {
 
     Ventanas ventana = new Ventanas(this);
-       
-    public JFPag1() {
+    static String nombreUsuario;  
+    public JFPag1(String usuario) {
         initComponents();
+        nombreUsuario = usuario;
+        LblNombre.setText("Hola "+usuario);
     }
    
     @SuppressWarnings("unchecked")
@@ -41,6 +43,7 @@ public class JFPag1 extends javax.swing.JFrame {
         Rbt3 = new javax.swing.JRadioButton();
         Rbt4 = new javax.swing.JRadioButton();
         LblMensaje = new javax.swing.JLabel();
+        LblNombre = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(650, 600));
@@ -104,6 +107,8 @@ public class JFPag1 extends javax.swing.JFrame {
         LblMensaje.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         LblMensaje.setForeground(new java.awt.Color(255, 51, 51));
 
+        LblNombre.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -117,7 +122,6 @@ public class JFPag1 extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(ChkPreg2)
                                 .addGap(65, 65, 65)
@@ -135,17 +139,18 @@ public class JFPag1 extends javax.swing.JFrame {
                                 .addGap(48, 48, 48)
                                 .addComponent(Rbt3)
                                 .addGap(28, 28, 28)
-                                .addComponent(Rbt4)))
-                        .addContainerGap(82, Short.MAX_VALUE))))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(Rbt4))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(32, 32, 32)
+                                .addComponent(jLabel2))
+                            .addComponent(jLabel3))
+                        .addContainerGap(82, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addComponent(LblPag1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(67, 67, 67)
-                        .addComponent(jLabel2)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(11, 11, 11)
+                        .addComponent(LblPag1)
+                        .addGap(127, 127, 127)
+                        .addComponent(LblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -164,8 +169,10 @@ public class JFPag1 extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(LblPag1)
-                .addGap(49, 49, 49)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(LblPag1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(LblNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(36, 36, 36)
                 .addComponent(jLabel2)
@@ -195,7 +202,7 @@ public class JFPag1 extends javax.swing.JFrame {
                 .addComponent(LblMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addComponent(BtnSiguientePag1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addGap(51, 51, 51))
         );
 
         pack();
@@ -212,7 +219,7 @@ public class JFPag1 extends javax.swing.JFrame {
         {
             if(Rbt1.isSelected()||Rbt2.isSelected()||Rbt3.isSelected()||Rbt4.isSelected())
             {
-                JFpag2 pag2 = new JFpag2();
+                JFpag2 pag2 = new JFpag2(nombreUsuario);
                 Datos data = new Datos();
                 data.setPregunta1_1(ChkPreg1.isSelected());
                 data.setPregunta1_2(ChkPreg2.isSelected());
@@ -260,7 +267,7 @@ public class JFPag1 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JFPag1().setVisible(true);
+                new JFPag1(nombreUsuario).setVisible(true);
             }
         });
     }
@@ -272,6 +279,7 @@ public class JFPag1 extends javax.swing.JFrame {
     private javax.swing.JCheckBox ChkPreg3;
     private javax.swing.JCheckBox ChkPreg4;
     private javax.swing.JLabel LblMensaje;
+    private javax.swing.JLabel LblNombre;
     private javax.swing.JLabel LblPag1;
     private javax.swing.JRadioButton Rbt1;
     private javax.swing.JRadioButton Rbt2;

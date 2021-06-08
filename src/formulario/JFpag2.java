@@ -14,10 +14,13 @@ import javax.swing.JOptionPane;
 public class JFpag2 extends javax.swing.JFrame {
 
     Ventanas ventana = new Ventanas(this);
-    JFPag1 pag1 = new JFPag1();
-     Datos dato = new Datos();
-    public JFpag2() {
+    static String nombreUsuario;
+    JFPag1 pag1;
+    Datos dato = new Datos();
+    public JFpag2(String usuario) {
         initComponents();
+        nombreUsuario = usuario;
+        lblNombre.setText("Hola "+nombreUsuario);
     }
 
     /**
@@ -54,6 +57,7 @@ public class JFpag2 extends javax.swing.JFrame {
         ChkOpt3 = new javax.swing.JCheckBox();
         ChkOpt4 = new javax.swing.JCheckBox();
         LblMensaje = new javax.swing.JLabel();
+        lblNombre = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(650, 800));
@@ -151,6 +155,8 @@ public class JFpag2 extends javax.swing.JFrame {
         LblMensaje.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         LblMensaje.setForeground(new java.awt.Color(255, 51, 51));
 
+        lblNombre.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -167,7 +173,6 @@ public class JFpag2 extends javax.swing.JFrame {
                         .addGap(59, 59, 59)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 507, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(LblPag1)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -205,7 +210,12 @@ public class JFpag2 extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
                                 .addComponent(jLabel16))
-                            .addComponent(jLabel15))))
+                            .addComponent(jLabel15)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addComponent(LblPag1)
+                        .addGap(121, 121, 121)
+                        .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(84, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -215,9 +225,11 @@ public class JFpag2 extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(LblPag1)
+                    .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(33, 33, 33)
-                .addComponent(LblPag1)
-                .addGap(11, 11, 11)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
@@ -275,7 +287,7 @@ public class JFpag2 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+        pag1= new JFPag1(nombreUsuario);
         ventana.ocutarVentana();
         ventana.abrirVentana(pag1);
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -335,7 +347,7 @@ public class JFpag2 extends javax.swing.JFrame {
         if(ChkOpt1.isSelected()||ChkOpt2.isSelected()||ChkOpt3.isSelected()||ChkOpt4.isSelected())
         {
            Datos dato = new Datos();
-           JFpag3 pag3 = new JFpag3();
+           JFpag3 pag3 = new JFpag3(nombreUsuario);
            dato.setPregunta3(ChkOpt3.isSelected());
            ventana.ocutarVentana();
            ventana.abrirVentana(pag3);
@@ -376,7 +388,7 @@ public class JFpag2 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JFpag2().setVisible(true);
+                new JFpag2(nombreUsuario).setVisible(true);
             }
         });
     }
@@ -407,5 +419,6 @@ public class JFpag2 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel lblNombre;
     // End of variables declaration//GEN-END:variables
 }

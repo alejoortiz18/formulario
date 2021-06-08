@@ -21,8 +21,9 @@ import javax.swing.JOptionPane;
  */
 public class JFpag4 extends javax.swing.JFrame {
     Ventanas ventana = new Ventanas(this);
-   
+   Datos dato = new Datos();
     int itemIndexBox1=0;
+    static String nombreUsuario;
     String txtReservedBox1="";
     String cob1="-";
     String cob2="-";
@@ -35,8 +36,10 @@ public class JFpag4 extends javax.swing.JFrame {
     
    
     
-    public JFpag4() {
+    public JFpag4(String usuario) {
         initComponents();
+        nombreUsuario = usuario;
+        LblNombre.setText("Hola "+usuario);
     }
 
     /**
@@ -69,6 +72,7 @@ public class JFpag4 extends javax.swing.JFrame {
         BtnTerminar = new javax.swing.JButton();
         BtnAtras = new javax.swing.JButton();
         LblMensaje = new javax.swing.JLabel();
+        LblNombre = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(600, 537));
@@ -194,6 +198,8 @@ public class JFpag4 extends javax.swing.JFrame {
         LblMensaje.setForeground(new java.awt.Color(204, 0, 0));
         LblMensaje.setToolTipText("");
 
+        LblNombre.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -213,7 +219,9 @@ public class JFpag4 extends javax.swing.JFrame {
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 507, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(42, 42, 42)
-                        .addComponent(LblPag1))
+                        .addComponent(LblPag1)
+                        .addGap(96, 96, 96)
+                        .addComponent(LblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(80, 80, 80)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -259,7 +267,9 @@ public class JFpag4 extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addComponent(LblPag1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(LblPag1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(LblNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(31, 31, 31)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -541,7 +551,7 @@ public class JFpag4 extends javax.swing.JFrame {
 
     private void BtnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAtrasActionPerformed
         ventana.ocutarVentana();
-        JFpag3 pag3 = new JFpag3();
+        JFpag3 pag3 = new JFpag3(nombreUsuario);
         
         
         ventana.abrirVentana(pag3);
@@ -553,11 +563,28 @@ public class JFpag4 extends javax.swing.JFrame {
        String RtaJCbox3 =JCbox3.getSelectedItem().toString(); 
        String RtaJCbox4 =JCbox4.getSelectedItem().toString();
        String RtaJCbox5 =JCbox5.getSelectedItem().toString();
-       Datos dato = new Datos();
+       
+       ArrayList<String> arrays = new ArrayList<>();
        if(RtaJCbox1.equals("-")|| RtaJCbox2.equals("-")|| RtaJCbox3.equals("-")|| RtaJCbox4.equals("-")|| RtaJCbox5.equals("-")){
            LblMensaje.setText("Debe ingresar todas las respuestas");
+       }else 
+       {           
+           if("1".equals(RtaJCbox1)){
+               dato.setJavais(true);
+           }
+           if("2".equals(RtaJCbox2)){
+               dato.setPolimorfismoHerencia(true);
+           }
+           if("3".equals(RtaJCbox3)){
+               dato.setObjeto(true);
+           }
+           if("4".equals(RtaJCbox4)){
+               dato.setPausaEjecucion(true);
+           }
+           if("5".equals(RtaJCbox5)){
+               dato.setRvoid(true);
+           }
        }
-        int sel = 1;
     }//GEN-LAST:event_BtnTerminarActionPerformed
 
     public void addElementCombo(String item,int comboBox1,int comboBox2,int comboBox3,int comboBox4, int comboBox5){
@@ -919,7 +946,7 @@ public class JFpag4 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JFpag4().setVisible(true);
+                new JFpag4(nombreUsuario).setVisible(true);
             }
         });
     }
@@ -933,6 +960,7 @@ public class JFpag4 extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> JCbox4;
     private javax.swing.JComboBox<String> JCbox5;
     private javax.swing.JLabel LblMensaje;
+    private javax.swing.JLabel LblNombre;
     private java.awt.Label LblOption1;
     private java.awt.Label LblOption2;
     private java.awt.Label LblOption3;

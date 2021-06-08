@@ -18,17 +18,20 @@ public class JFpag3 extends javax.swing.JFrame {
     Ventanas ventana = new Ventanas(this);
     DefaultListModel list = new DefaultListModel();
     ArrayList<String> arrays;
-    JFpag2 pag2 = new JFpag2();
+    static String nombreUsuario;
+    JFpag2 pag2 ;
     Datos data = new Datos();
-    JFpag4 pag4 = new JFpag4();
+    JFpag4 pag4;
     /**
      * Creates new form JFpag3
      */
-    public JFpag3() {
+    public JFpag3(String usuario) {
         initComponents();
         list = new DefaultListModel();
         JLDatos.setModel(list);
         arrays = new ArrayList<String>();
+        nombreUsuario = usuario;
+        LblNombre.setText("Hola "+usuario);
     }
 
     /**
@@ -52,6 +55,7 @@ public class JFpag3 extends javax.swing.JFrame {
         BtnSiguiente = new javax.swing.JButton();
         BtnAtras = new javax.swing.JButton();
         LblMesaje = new javax.swing.JLabel();
+        LblNombre = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(630, 600));
@@ -115,6 +119,8 @@ public class JFpag3 extends javax.swing.JFrame {
         LblMesaje.setForeground(new java.awt.Color(255, 0, 0));
         LblMesaje.setToolTipText("");
 
+        LblNombre.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -122,6 +128,16 @@ public class JFpag3 extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(108, 108, 108)
+                                .addComponent(LblMesaje, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(LblPag1)
+                                .addGap(119, 119, 119)
+                                .addComponent(LblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(57, 57, 57)
                         .addComponent(BtnAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -138,7 +154,6 @@ public class JFpag3 extends javax.swing.JFrame {
                                     .addComponent(BtnQuitar))
                                 .addGap(43, 43, 43)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(LblPag1)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -146,17 +161,15 @@ public class JFpag3 extends javax.swing.JFrame {
                                     .addComponent(jLabel3)
                                     .addComponent(jLabel4))))
                         .addContainerGap(71, Short.MAX_VALUE))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(147, 147, 147)
-                .addComponent(LblMesaje, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(LblPag1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(11, 11, 11)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LblPag1))
+                .addGap(33, 33, 33)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
@@ -249,6 +262,7 @@ public class JFpag3 extends javax.swing.JFrame {
                     data.setP4SelectString(true);
                 }
             } 
+            pag4 = new JFpag4(nombreUsuario);
             ventana.ocutarVentana();
             ventana.abrirVentana(pag4);
         }
@@ -256,6 +270,7 @@ public class JFpag3 extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnSiguienteActionPerformed
 
     private void BtnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAtrasActionPerformed
+        pag2= new JFpag2(nombreUsuario);
         ventana.ocutarVentana();
         ventana.abrirVentana(pag2);
     }//GEN-LAST:event_BtnAtrasActionPerformed
@@ -315,7 +330,7 @@ public class JFpag3 extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new JFpag3().setVisible(true);
+            new JFpag3(nombreUsuario).setVisible(true);
         });
     }
 
@@ -327,6 +342,7 @@ public class JFpag3 extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> JCboxPag3;
     private javax.swing.JList<String> JLDatos;
     private javax.swing.JLabel LblMesaje;
+    private javax.swing.JLabel LblNombre;
     private javax.swing.JLabel LblPag1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;

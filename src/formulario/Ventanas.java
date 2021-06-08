@@ -16,25 +16,10 @@ public class Ventanas {
    // private JFPag1 _page1;
     private javax.swing.JFrame _this; 
 
-    
-
-//    public Ventanas(JFInicio inicio, JFPag1 pag1 ) {
-//        this._inicio = inicio;
-//        this._page1 = pag1;
-//    }
-    
+   
     public Ventanas(javax.swing.JFrame jfm){
         _this =jfm;
     }
-    
-//    public void EstablecerVentana(int VentanaId){
-//        if(VentanaId ==1)
-//        {
-//            _inicio.setVisible(false);
-//            _page1.setVisible(true);
-//            
-//        }
-//    }
     
     public void ocutarVentana(){
         _this.setVisible(false);

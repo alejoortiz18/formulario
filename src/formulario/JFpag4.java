@@ -68,6 +68,7 @@ public class JFpag4 extends javax.swing.JFrame {
         JCbox5 = new javax.swing.JComboBox<>();
         BtnTerminar = new javax.swing.JButton();
         BtnAtras = new javax.swing.JButton();
+        LblMensaje = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(600, 537));
@@ -185,6 +186,10 @@ public class JFpag4 extends javax.swing.JFrame {
             }
         });
 
+        LblMensaje.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        LblMensaje.setForeground(new java.awt.Color(204, 0, 0));
+        LblMensaje.setToolTipText("");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -236,11 +241,15 @@ public class JFpag4 extends javax.swing.JFrame {
                                     .addComponent(LblRespuesta2))))))
                 .addContainerGap(21, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(97, 97, 97)
+                .addGap(102, 102, 102)
                 .addComponent(BtnAtras)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BtnTerminar)
-                .addGap(110, 110, 110))
+                .addComponent(BtnTerminar, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(99, 99, 99))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(LblMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(125, 125, 125))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -272,7 +281,7 @@ public class JFpag4 extends javax.swing.JFrame {
                         .addComponent(LblRespuesta5)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(JCbox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(LblRespuesta2)))
@@ -285,11 +294,13 @@ public class JFpag4 extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(JCbox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(LblRespuesta1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BtnTerminar)
-                    .addComponent(BtnAtras))
-                .addGap(56, 56, 56))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addComponent(LblMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BtnAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BtnTerminar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40))
         );
 
         LblOption5.getAccessibleContext().setAccessibleName("5) Palabra reservada");
@@ -536,7 +547,10 @@ public class JFpag4 extends javax.swing.JFrame {
        String RtaJCbox3 =JCbox3.getSelectedItem().toString(); 
        String RtaJCbox4 =JCbox4.getSelectedItem().toString();
        String RtaJCbox5 =JCbox5.getSelectedItem().toString();
-       
+       Datos dato = new Datos();
+       if(RtaJCbox1.equals("-")|| RtaJCbox2.equals("-")|| RtaJCbox3.equals("-")|| RtaJCbox4.equals("-")|| RtaJCbox5.equals("-")){
+           LblMensaje.setText("Debe ingresar todas las respuestas");
+       }
         int sel = 1;
     }//GEN-LAST:event_BtnTerminarActionPerformed
 
@@ -912,6 +926,7 @@ public class JFpag4 extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> JCbox3;
     private javax.swing.JComboBox<String> JCbox4;
     private javax.swing.JComboBox<String> JCbox5;
+    private javax.swing.JLabel LblMensaje;
     private java.awt.Label LblOption1;
     private java.awt.Label LblOption2;
     private java.awt.Label LblOption3;

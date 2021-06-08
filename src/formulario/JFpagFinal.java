@@ -13,15 +13,86 @@ public class JFpagFinal extends javax.swing.JFrame {
 
     static boolean pregunta1;
     static String nombreU;
-    
-    public JFpagFinal(String usuario,boolean p1) {
+    boolean ganop1;
+    //=========PREGUNTA 1 20%============
+    //for(int i=5;i>=1;i--){ System.out.println(i);} (ChkPreg1)
+    public boolean Pregunta1_1=false;
+    //for(int i=5;i>0;i--){ System.out.println(i);}  (ChkPreg2)  
+    public boolean Pregunta1_2=false;
+    //mala
+    public boolean Pregunta1_3=false;
+    //mala
+    public boolean Pregunta1_4=false;
+
+    public boolean isPregunta1_1() {
+        return Pregunta1_1;
+    }
+//==============PREGUNTA 2 20%=========
+    //Ninguna de las anteriores (Rbt4)
+    public boolean Pregunta2=false;
+  
+ //================== CONSTRUCTOR ====================================   
+    public JFpagFinal(String usuario) {
         initComponents();
-        LblNombre.setText(usuario);
-        pregunta1 = p1;
         nombreU = usuario;
-                
+        LblNombre.setText(nombreU);   
     }
 
+    //=========================GET AND SET====================================
+
+    public boolean isPregunta2() {
+        return Pregunta2;
+    }
+
+    public void setPregunta2(boolean Pregunta2) {
+        this.Pregunta2 = Pregunta2;
+    }
+    
+    public void setPregunta1_1(boolean Pregunta1_1) {
+        this.Pregunta1_1 = Pregunta1_1;
+    }
+
+    public boolean isPregunta1_2() {
+        return Pregunta1_2;
+    }
+
+    public void setPregunta1_2(boolean Pregunta1_2) {
+        this.Pregunta1_2 = Pregunta1_2;
+    }
+
+    public boolean isPregunta1_3() {
+        return Pregunta1_3;
+    }
+
+    public void setPregunta1_3(boolean Pregunta1_3) {
+        this.Pregunta1_3 = Pregunta1_3;
+    }
+
+    public boolean isPregunta1_4() {
+        return Pregunta1_4;
+    }
+
+    public void setPregunta1_4(boolean Pregunta1_4) {
+        this.Pregunta1_4 = Pregunta1_4;
+    }
+    
+//====================== METODOS ====================================    
+    
+    private void establecerPreguntaUno(){
+              
+        if(isPregunta1_1() && isPregunta1_2()){
+            ganop1=true;
+        }else{
+             ganop1=false;
+        }
+        if(isPregunta1_1()){
+            ChkOpt1P1.isSelected();
+        }
+        if(isPregunta1_2()){
+            ChkOpt2P1.isSelected();
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -387,7 +458,7 @@ public class JFpagFinal extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JFpagFinal(nombreU,pregunta1).setVisible(true);
+                new JFpagFinal(nombreU).setVisible(true);
             }
         });
     }

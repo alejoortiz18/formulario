@@ -14,14 +14,15 @@ import javax.swing.JOptionPane;
 public class Notas extends Datos{
     
     
-    public boolean notaPregunta1(){
+    public boolean notaPregunta1(boolean p1,boolean p2,boolean p3,boolean p4){
        //  ESTA PREGUNTA VALE UN 20%
-        boolean p1,p2,p3,p4, gano =false;
+        boolean _p1,_p2,_p3,_p4, gano =false;
         //  1_1 // 1_2 buenas
-        p1 = getPregunta1_1();
-        p2 = getPregunta1_2();
-        p3 = getPregunta1_3();
-        p4 = getPregunta1_4();
+        setPregunta1_1(p1);        
+        setPregunta1_2(p2);
+        setPregunta1_3(p3);
+        setPregunta1_4(p4);
+             
         
         if(p1 && p2){
             gano=true;

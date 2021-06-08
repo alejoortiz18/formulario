@@ -73,6 +73,11 @@ public class JFPag1 extends javax.swing.JFrame {
         ChkPreg2.setText("for(int i=5;i>0;i--){ System.out.println(i); } ");
 
         ChkPreg3.setText("for(int i=1;i>=5;i++){ System.out.println(i); } ");
+        ChkPreg3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ChkPreg3ActionPerformed(evt);
+            }
+        });
 
         ChkPreg4.setText("for(int i=5;i>=5;i--){System.out.println(i); } ");
 
@@ -220,7 +225,7 @@ public class JFPag1 extends javax.swing.JFrame {
             if(Rbt1.isSelected()||Rbt2.isSelected()||Rbt3.isSelected()||Rbt4.isSelected())
             {
                 JFpag2 pag2 = new JFpag2(nombreUsuario);
-                Datos data = new Datos();
+                JFpagFinal data = new JFpagFinal(nombreUsuario);
                 data.setPregunta1_1(ChkPreg1.isSelected());
                 data.setPregunta1_2(ChkPreg2.isSelected());
                 data.setPregunta1_3(ChkPreg3.isSelected());
@@ -240,6 +245,10 @@ public class JFPag1 extends javax.swing.JFrame {
         }
        
     }//GEN-LAST:event_BtnSiguientePag1ActionPerformed
+
+    private void ChkPreg3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChkPreg3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ChkPreg3ActionPerformed
 
     
     public static void main(String args[]) {

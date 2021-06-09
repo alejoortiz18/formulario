@@ -19,7 +19,11 @@ public final class JFpagFinal extends javax.swing.JFrame {
 
     static Persona usuario;
     boolean ganop1;    
-    boolean ganop2;
+    boolean ganop2;    
+    boolean ganop3;   
+    boolean ganop4;
+
+
 
     Notas nota;
   
@@ -39,6 +43,8 @@ public final class JFpagFinal extends javax.swing.JFrame {
    public void cargarDatosEnVista(){
       cargarPuntoUno();
       cargarPuntoDos();
+      cargarPuntoTres();
+      cargarPuntoCuatro();
    }
    
    public void cargarPuntoUno()
@@ -109,6 +115,72 @@ public final class JFpagFinal extends javax.swing.JFrame {
         ganop2 =result;
     }
     
+    public void cargarPuntoTres()
+    {
+        boolean result = nota.ifGano(datos.Pregunta3_3);
+        if(result){
+         LblRespuesta3.setText("20%");
+         LblRespuesta3.setForeground(Color.GREEN);
+        }else{
+            LblRespuesta3.setText("X");
+            LblRespuesta3.setForeground(Color.RED);
+        }
+        
+        ChkOpt1P3.setBackground(Color.RED);
+        ChkOpt2P3.setBackground(Color.RED);
+        ChkOpt3P3.setBackground(Color.GREEN);
+        ChkOpt4P3.setBackground(Color.RED);
+        
+        if(datos.Pregunta3_1){
+            ChkOpt1P3.setSelected(datos.Pregunta3_1);
+        }
+        if(datos.Pregunta3_2){
+            ChkOpt2P3.setSelected(datos.Pregunta3_2);
+        }
+        if(datos.Pregunta3_3){
+            ChkOpt3P3.setSelected(datos.Pregunta3_3);
+        }
+        if(datos.Pregunta3_4){
+            ChkOpt4P3.setSelected(datos.Pregunta3_4);
+        }
+    }
+    
+    public void cargarPuntoCuatro(){
+        boolean respuesta = nota.ifGano(datos.p4SelectInt, datos.p4SelectFloat,datos.p4SelectDouble,datos.p4SelectString);
+        if(respuesta){
+            LblRespuesta4.setText("25%");
+            LblRespuesta4.setForeground(Color.GREEN);
+        }else{
+            LblRespuesta4.setText("X");
+            LblRespuesta4.setForeground(Color.RED);
+        }
+        LblIntP4.setBackground(Color.GREEN);
+        LblFloatP4.setBackground(Color.GREEN);
+        LbldoubleP4.setBackground(Color.GREEN);
+        LblStringP4.setBackground(Color.GREEN);        
+        LblNumericP4.setBackground(Color.RED);
+        LblMoneyP4.setBackground(Color.RED);
+        
+        if(datos.p4SelectInt){
+            LblIntP4.setSelected(datos.p4SelectInt);
+        }
+        if(datos.p4SelectFloat){
+            LblFloatP4.setSelected(datos.p4SelectFloat);
+        }
+        if(datos.p4SelectDouble){
+            LbldoubleP4.setSelected(datos.p4SelectDouble);
+        }
+        if(datos.p4SelectString){
+            LblStringP4.setSelected(datos.p4SelectString);
+        }
+        if(datos.p4SelectNumeric){
+            LblNumericP4.setSelected(datos.p4SelectNumeric);
+        }
+        if(datos.p4SelectMoney){
+            LblMoneyP4.setSelected(datos.p4SelectMoney);
+        }
+        ganop4=respuesta;
+    }
 //======================TERMINA LOS METODOS ====================================  
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -127,7 +199,6 @@ public final class JFpagFinal extends javax.swing.JFrame {
         Rbt3P2 = new javax.swing.JRadioButton();
         Rbt4P2 = new javax.swing.JRadioButton();
         jLabel4 = new javax.swing.JLabel();
-        LblResultPregunta4 = new javax.swing.JLabel();
         ChkOpt3P3 = new javax.swing.JCheckBox();
         ChkOpt4P3 = new javax.swing.JCheckBox();
         ChkOpt1P3 = new javax.swing.JCheckBox();
@@ -141,6 +212,14 @@ public final class JFpagFinal extends javax.swing.JFrame {
         ChkOpt5P5 = new javax.swing.JCheckBox();
         LblRespuesta1 = new javax.swing.JLabel();
         LblRespuesta2 = new javax.swing.JLabel();
+        LblRespuesta3 = new javax.swing.JLabel();
+        LblRespuesta4 = new javax.swing.JLabel();
+        LblIntP4 = new javax.swing.JCheckBox();
+        LblFloatP4 = new javax.swing.JCheckBox();
+        LbldoubleP4 = new javax.swing.JCheckBox();
+        LblStringP4 = new javax.swing.JCheckBox();
+        LblNumericP4 = new javax.swing.JCheckBox();
+        LblMoneyP4 = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -192,9 +271,6 @@ public final class JFpagFinal extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel4.setText("Pregunta 5 - 15%");
 
-        LblResultPregunta4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        LblResultPregunta4.setText("jLabel5");
-
         ChkOpt3P3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         ChkOpt3P3.setText("C) Error al dividir por cero");
         ChkOpt3P3.setEnabled(false);
@@ -235,7 +311,7 @@ public final class JFpagFinal extends javax.swing.JFrame {
         jLabel5.setText("Pregunta 3 - 20%");
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel6.setText("Pregunta 4 - 20%");
+        jLabel6.setText("Pregunta 4 - 25%");
 
         ChkOpt3P5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         ChkOpt3P5.setText("Instancia de Clase");
@@ -264,6 +340,36 @@ public final class JFpagFinal extends javax.swing.JFrame {
         LblRespuesta2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         LblRespuesta2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        LblRespuesta3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        LblRespuesta3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        LblRespuesta4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LblRespuesta4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        LblIntP4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        LblIntP4.setText("Int");
+        LblIntP4.setEnabled(false);
+
+        LblFloatP4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        LblFloatP4.setText("Float");
+        LblFloatP4.setEnabled(false);
+
+        LbldoubleP4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        LbldoubleP4.setText("double");
+        LbldoubleP4.setEnabled(false);
+
+        LblStringP4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        LblStringP4.setText("String");
+        LblStringP4.setEnabled(false);
+
+        LblNumericP4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        LblNumericP4.setText("Numeric");
+        LblNumericP4.setEnabled(false);
+
+        LblMoneyP4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        LblMoneyP4.setText("Money");
+        LblMoneyP4.setEnabled(false);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -285,9 +391,6 @@ public final class JFpagFinal extends javax.swing.JFrame {
                                     .addComponent(ChkPreg3)
                                     .addComponent(ChkPreg4)))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(94, 94, 94)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(Rbt1P2)
                                 .addGap(40, 40, 40)
                                 .addComponent(Rbt2P2)
@@ -304,37 +407,56 @@ public final class JFpagFinal extends javax.swing.JFrame {
                                     .addComponent(ChkOpt2P3)
                                     .addComponent(ChkOpt4P3)))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(94, 94, 94)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(LblIntP4)
+                                        .addGap(34, 34, 34)
+                                        .addComponent(LblFloatP4)
+                                        .addGap(33, 33, 33)
+                                        .addComponent(LbldoubleP4))
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(LblStringP4)
+                                .addGap(38, 38, 38)
+                                .addComponent(LblNumericP4)
+                                .addGap(29, 29, 29)
+                                .addComponent(LblMoneyP4)
+                                .addGap(14, 14, 14))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(102, 102, 102)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(LblResultPregunta4, javax.swing.GroupLayout.PREFERRED_SIZE, 519, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(94, 94, 94)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(42, 42, 42)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(LblRespuesta2, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
-                            .addComponent(LblRespuesta1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(LblRespuesta1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(LblRespuesta3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(LblRespuesta4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(45, 45, 45)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(115, 115, 115)
-                        .addComponent(LblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(LblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(177, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(117, 117, 117)
+                        .addGap(88, 88, 88)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(87, 87, 87)
+                        .addGap(58, 58, 58)
                         .addComponent(ChkOpt4P5)
                         .addGap(52, 52, 52)
                         .addComponent(ChkOpt5P5))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
                         .addComponent(ChkOpt1P5)
                         .addGap(18, 18, 18)
                         .addComponent(ChkOpt2P5)
                         .addGap(36, 36, 36)
                         .addComponent(ChkOpt3P5)))
-                .addContainerGap(177, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -346,7 +468,7 @@ public final class JFpagFinal extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(ChkPreg3)
@@ -355,10 +477,10 @@ public final class JFpagFinal extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(ChkPreg2)
                             .addComponent(ChkPreg4)))
-                    .addComponent(LblRespuesta1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(LblRespuesta1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
+                        .addGap(13, 13, 13)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(19, 19, 19)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -367,23 +489,36 @@ public final class JFpagFinal extends javax.swing.JFrame {
                             .addComponent(Rbt3P2)
                             .addComponent(Rbt4P2)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
+                        .addGap(37, 37, 37)
                         .addComponent(LblRespuesta2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(27, 27, 27)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ChkOpt1P3)
-                    .addComponent(ChkOpt2P3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ChkOpt4P3)
-                    .addComponent(ChkOpt3P3))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(ChkOpt1P3)
+                            .addComponent(ChkOpt2P3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ChkOpt4P3)
+                            .addComponent(ChkOpt3P3)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addComponent(LblRespuesta3, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(LblResultPregunta4, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(LblIntP4)
+                        .addComponent(LblFloatP4)
+                        .addComponent(LbldoubleP4)
+                        .addComponent(LblStringP4)
+                        .addComponent(LblNumericP4)
+                        .addComponent(LblMoneyP4))
+                    .addComponent(LblRespuesta4, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -394,7 +529,7 @@ public final class JFpagFinal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ChkOpt4P5)
                     .addComponent(ChkOpt5P5))
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         pack();
@@ -501,10 +636,17 @@ public final class JFpagFinal extends javax.swing.JFrame {
     private javax.swing.JCheckBox ChkPreg2;
     private javax.swing.JCheckBox ChkPreg3;
     private javax.swing.JCheckBox ChkPreg4;
+    private javax.swing.JCheckBox LblFloatP4;
+    private javax.swing.JCheckBox LblIntP4;
+    private javax.swing.JCheckBox LblMoneyP4;
     private javax.swing.JLabel LblNombre;
+    private javax.swing.JCheckBox LblNumericP4;
     private javax.swing.JLabel LblRespuesta1;
     private javax.swing.JLabel LblRespuesta2;
-    private javax.swing.JLabel LblResultPregunta4;
+    private javax.swing.JLabel LblRespuesta3;
+    private javax.swing.JLabel LblRespuesta4;
+    private javax.swing.JCheckBox LblStringP4;
+    private javax.swing.JCheckBox LbldoubleP4;
     private javax.swing.JRadioButton Rbt1P2;
     private javax.swing.JRadioButton Rbt2P2;
     private javax.swing.JRadioButton Rbt3P2;

@@ -27,7 +27,14 @@ public class Notas{
         return ganoPregunta;
     }
     
-    
+    public boolean ifGano(boolean p1,boolean p2, boolean p3, boolean p4)
+    {
+       boolean ganoPregunta = false;
+        if(p1 && p2 && p3 && p4){
+           ganoPregunta =true;
+       }
+        return ganoPregunta;
+    }
    
     
 }

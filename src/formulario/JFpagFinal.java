@@ -243,7 +243,7 @@ public final class JFpagFinal extends javax.swing.JFrame {
             lblp5_5.setForeground(Color.GREEN);
         }else{
             ChkOpt5P5.setSelected(false);
-            ChkOpt5P5.setBackground(Color.GREEN);
+            ChkOpt5P5.setBackground(Color.RED);
             lblp5_5.setForeground(Color.RED);
         }
       ganop5=respuesta;

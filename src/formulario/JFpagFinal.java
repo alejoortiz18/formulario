@@ -83,18 +83,12 @@ public class JFpagFinal extends javax.swing.JFrame {
 //====================== METODOS ====================================    
     
     private void establecerPreguntaUno(){
-              
-        if(isPregunta1_1() && isPregunta1_2()){
-            ganop1=true;
-        }else{
-             ganop1=false;
-        }
-        if(isPregunta1_1()){
-            ChkOpt1P1.isSelected();
-        }
-        if(isPregunta1_2()){
-            ChkOpt2P1.isSelected();
-        }
+           boolean p1 = datoPagFinal.Pregunta1_1;              
+           boolean p2 = datoPagFina1.Pregunta1_2;   
+           boolean p3 = datoPagFina1.Pregunta1_3;   
+           boolean p4 = datoPagFina1.Pregunta1_4;   
+
+       
     }
     
     /**

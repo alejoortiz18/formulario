@@ -342,9 +342,12 @@ public class JFpag2 extends javax.swing.JFrame {
        
         if(ChkOpt1.isSelected()||ChkOpt2.isSelected()||ChkOpt3.isSelected()||ChkOpt4.isSelected())
         {
-           Datos dato = new Datos();
+            datoPag2.Pregunta3_1 =ChkOpt1.isSelected();            
+            datoPag2.Pregunta3_2 =ChkOpt2.isSelected();
+            datoPag2.Pregunta3_3 =ChkOpt3.isSelected();
+            datoPag2.Pregunta3_4 =ChkOpt4.isSelected();
+
            JFpag3 pag3 = new JFpag3(nombreUsuario,datoPag2);
-           dato.setPregunta3(ChkOpt3.isSelected());
            ventana.ocutarVentana();
            ventana.abrirVentana(pag3);
         }

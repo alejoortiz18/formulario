@@ -565,26 +565,16 @@ public class JFpag4 extends javax.swing.JFrame{
        String RtaJCbox4 =JCbox4.getSelectedItem().toString();
        String RtaJCbox5 =JCbox5.getSelectedItem().toString();
        
-       ArrayList<String> arrays = new ArrayList<>();
        if(RtaJCbox1.equals("-")|| RtaJCbox2.equals("-")|| RtaJCbox3.equals("-")|| RtaJCbox4.equals("-")|| RtaJCbox5.equals("-")){
            LblMensaje.setText("Debe ingresar todas las respuestas");
        }else 
        {           
-           if("1".equals(RtaJCbox1)){
-               datoPag4.setJavais(true);
-           }
-           if("2".equals(RtaJCbox2)){
-               datoPag4.setPolimorfismoHerencia(true);
-           }
-           if("3".equals(RtaJCbox3)){
-               datoPag4.setObjeto(true);
-           }
-           if("4".equals(RtaJCbox4)){
-               datoPag4.setPausaEjecucion(true);
-           }
-           if("5".equals(RtaJCbox5)){
-               datoPag4.setRvoid(true);
-           }
+           datoPag4.pregunta5_1 =RtaJCbox1 ;           
+           datoPag4.pregunta5_2 =RtaJCbox2 ;
+           datoPag4.pregunta5_3 =RtaJCbox3 ;
+           datoPag4.pregunta5_4 =RtaJCbox4 ;
+           datoPag4.pregunta5_5 =RtaJCbox5 ;
+
            
            pagFinal = new JFpagFinal(nombreUsuario,datoPag4);
            ventana.ocutarVentana();

@@ -152,9 +152,12 @@ public class JFpag3 extends javax.swing.JFrame {
                                 .addComponent(JCboxPag3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(BtnAgregar)
-                                    .addComponent(BtnQuitar))
-                                .addGap(43, 43, 43)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(BtnQuitar)
+                                        .addGap(43, 43, 43))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(BtnAgregar)
+                                        .addGap(18, 18, 18)))
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
@@ -234,7 +237,7 @@ public class JFpag3 extends javax.swing.JFrame {
             JCboxPag3.addItem(item); 
             list.remove(eli);
             LblMesaje.setText("Se removió el elemento " + item);
-            deleteElementoList(item);
+           // deleteElementoList(item);
             
         } 
     }//GEN-LAST:event_BtnQuitarActionPerformed
@@ -242,27 +245,42 @@ public class JFpag3 extends javax.swing.JFrame {
     private void BtnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSiguienteActionPerformed
         int itemCount = list.getSize();
         
+        public boolean p4SelectInt=false;
+    public boolean p4SelectFloat=false;
+    public boolean p4SelectDouble=false;
+    public boolean p4SelectString=false;    
+    public boolean p4SelectNumeric=false;
+    public boolean p4SelectMoney=false;
+        
+        
         if(itemCount==0){
             LblMesaje.setText("Ingresa al menos una respuesta ");
         }else{
             LblMesaje.setText("");
-            datosPag3.setArraysP4(arrays);
-            for(int i=0; i <arrays.size();i++)
+            
+            for(int i=0; i <=arrays.size();i++)
             {
                 //int,float,double,String
                 if("int".equals(arrays.get(i))){
-                    datosPag3.setP4SelectInt(true);
+                    datosPag3.p4SelectInt=true;
                 }
                 if("float".equals(arrays.get(i))){
-                    datosPag3.setP4SelectFloat(true);
+                    datosPag3.p4SelectFloat=true;
                 }
                 if("double".equals(arrays.get(i))){
-                    datosPag3.setP4SelectDouble(true);
+                    datosPag3.p4SelectDouble=true;
                 }
                 if("String".equals(arrays.get(i))){
-                    datosPag3.setP4SelectString(true);
+                    datosPag3.p4SelectString=true;
+                }
+                if("Numeric".equals(arrays.get(i))){
+                    datosPag3.p4SelectNumeric=true;
+                }
+                if("Money".equals(arrays.get(i))){
+                    datosPag3.p4SelectMoney=true;
                 }
             } 
+            
             pag4 = new JFpag4(nombreUsuario,datosPag3);
             ventana.ocutarVentana();
             ventana.abrirVentana(pag4);

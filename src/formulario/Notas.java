@@ -5,19 +5,29 @@
  */
 package formulario;
 
-import javax.swing.JOptionPane;
 
-/**
- *
- * @author rortiz
- */
-public class Notas extends Datos{
-    double ganoPreguntaUno;
+public class Notas{
+        
+    public double ganoPreguntaUno;
     
-    public void notaPregunta1(boolean p1,boolean p2,boolean p3,boolean p4){
-       
+    public boolean ifGano(boolean p1){
+        boolean ganoPregunta = false;
+        if(p1){
+           ganoPregunta =true;
+       }
+        return ganoPregunta;
     }
-
+    
+    public boolean ifGano(boolean p1,boolean p2)
+    {
+       boolean ganoPregunta = false;
+        if(p1 && p2){
+           ganoPregunta =true;
+       }
+        return ganoPregunta;
+    }
+    
+    
    
     
 }

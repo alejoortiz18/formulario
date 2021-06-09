@@ -16,7 +16,7 @@ public class JFpag4 extends javax.swing.JFrame{
     Ventanas ventana = new Ventanas(this);
     static Datos datoPag4;
     int itemIndexBox1=0;
-    static String nombreUsuario;
+    static Persona usuario;
     String txtReservedBox1="";
     String cob1="-";
     String cob2="-";
@@ -28,10 +28,10 @@ public class JFpag4 extends javax.swing.JFrame{
    // DefaultComboBoxModel model = new DefaultComboBoxModel();
     //======OBTENER OBJETOS =========
     
-    public JFpag4(String usuario, Datos dato) {
+    public JFpag4(Persona user, Datos dato) {
         initComponents();
-        nombreUsuario = usuario;
-        LblNombre.setText("Hola "+usuario);
+        usuario = user;
+        LblNombre.setText("Hola "+user);
         datoPag4 = dato;
     }
 
@@ -550,10 +550,8 @@ public class JFpag4 extends javax.swing.JFrame{
 
     private void BtnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAtrasActionPerformed
         ventana.ocutarVentana();
-        //JFpag3 pag3 = new JFpag3(nombreUsuario,datoPag4);
-        
-        
-        //ventana.abrirVentana(pag3);
+        JFpag3 pag3 = new JFpag3(usuario,datoPag4);
+        ventana.abrirVentana(pag3);
     }//GEN-LAST:event_BtnAtrasActionPerformed
 
     private void BtnTerminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTerminarActionPerformed
@@ -576,7 +574,7 @@ public class JFpag4 extends javax.swing.JFrame{
            datoPag4.pregunta5_5 =RtaJCbox5 ;
 
            
-           pagFinal = new JFpagFinal(nombreUsuario,datoPag4);
+           pagFinal = new JFpagFinal(usuario,datoPag4);
            ventana.ocutarVentana();
            ventana.abrirVentana(pagFinal);
        }
@@ -941,7 +939,7 @@ public class JFpag4 extends javax.swing.JFrame{
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JFpag4(nombreUsuario,datoPag4).setVisible(true);
+                new JFpag4(usuario,datoPag4).setVisible(true);
             }
         });
     }

@@ -17,7 +17,7 @@ public class JFpag3 extends javax.swing.JFrame {
     Ventanas ventana = new Ventanas(this);
     DefaultListModel list = new DefaultListModel();
     ArrayList<String> arrays;
-    static String nombreUsuario;
+    static Persona usuario;
     JFpag2 pag2 ;
     static Datos datosPag3 ;
     JFpag4 pag4;
@@ -26,13 +26,13 @@ public class JFpag3 extends javax.swing.JFrame {
      * @param usuario
      * @param data
      */
-    public JFpag3(String usuario,Datos data) {
+    public JFpag3(Persona user,Datos data) {
         initComponents();
         list = new DefaultListModel();
         JLDatos.setModel(list);
         arrays = new ArrayList<>();
-        nombreUsuario = usuario;
-        LblNombre.setText("Hola "+usuario);
+        usuario = user;
+        LblNombre.setText("Hola "+user._Nombre);
         if(data ==null){
             datosPag3 =new Datos();
         }else{
@@ -273,7 +273,7 @@ public class JFpag3 extends javax.swing.JFrame {
                      datosPag3.p4SelectMoney =true;
                 }
             }
-            pag4 = new JFpag4(nombreUsuario,datosPag3);
+            pag4 = new JFpag4(usuario,datosPag3);
             ventana.ocutarVentana();
             ventana.abrirVentana(pag4);
        }
@@ -281,7 +281,7 @@ public class JFpag3 extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnSiguienteActionPerformed
 
     private void BtnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAtrasActionPerformed
-        pag2= new JFpag2(nombreUsuario,datosPag3);
+        pag2= new JFpag2(usuario,datosPag3);
         ventana.ocutarVentana();
         ventana.abrirVentana(pag2);
     }//GEN-LAST:event_BtnAtrasActionPerformed
@@ -337,7 +337,7 @@ public class JFpag3 extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new JFpag3(nombreUsuario,datosPag3).setVisible(true);
+            new JFpag3(usuario,datosPag3).setVisible(true);
         });
     }
 

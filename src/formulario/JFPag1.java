@@ -13,11 +13,12 @@ public class JFPag1 extends javax.swing.JFrame {
 
     Datos dataPag1 = new Datos();
     Ventanas ventana = new Ventanas(this);
-    static String nombreUsuario;  
-    public JFPag1(String usuario) {
+    static Persona usuario;  
+    
+    public JFPag1(Persona user) {
         initComponents();
-        nombreUsuario = usuario;
-        LblNombre.setText("Hola "+usuario);
+        usuario = user;
+        LblNombre.setText("Hola "+usuario._Nombre);
     }
    
     @SuppressWarnings("unchecked")
@@ -234,7 +235,7 @@ public class JFPag1 extends javax.swing.JFrame {
                 this.dataPag1.Pregunta2_3 = Rbt3.isSelected();
                 this.dataPag1.Pregunta2_4 = Rbt4.isSelected();
 
-                JFpag2 pag2 = new JFpag2(nombreUsuario,dataPag1);
+                JFpag2 pag2 = new JFpag2(usuario,dataPag1);
 
                 ventana.ocutarVentana();
                 ventana.abrirVentana(pag2);
@@ -282,7 +283,7 @@ public class JFPag1 extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new JFPag1(nombreUsuario).setVisible(true);
+            new JFPag1(usuario).setVisible(true);
         });
     }
 

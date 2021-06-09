@@ -13,82 +13,24 @@ public class JFpagFinal extends javax.swing.JFrame {
 
     static Datos datoPagFinal;
     static boolean pregunta1;
-    static String nombreU;
+    static Persona usuario;
     boolean ganop1;
-    //=========PREGUNTA 1 20%============
-    //for(int i=5;i>=1;i--){ System.out.println(i);} (ChkPreg1)
-    public boolean Pregunta1_1=false;
-    //for(int i=5;i>0;i--){ System.out.println(i);}  (ChkPreg2)  
-    public boolean Pregunta1_2=false;
-    //mala
-    public boolean Pregunta1_3=false;
-    //mala
-    public boolean Pregunta1_4=false;
-
-    public boolean isPregunta1_1() {
-        return Pregunta1_1;
-    }
-//==============PREGUNTA 2 20%=========
-    //Ninguna de las anteriores (Rbt4)
-    public boolean Pregunta2=false;
+  
   
  //================== CONSTRUCTOR ====================================   
-    public JFpagFinal(String usuario,Datos dato) {
+    public JFpagFinal(Persona user,Datos dato) {
         initComponents();
-        nombreU = usuario;
-        LblNombre.setText("Hola "+nombreU+ ", este es su resultado."); 
+        usuario = user;
+        LblNombre.setText("Hola "+usuario._Nombre+ ", este es su resultado."); 
         datoPagFinal = dato;
     }
 
-    //=========================GET AND SET====================================
-
-    public boolean isPregunta2() {
-        return Pregunta2;
-    }
-
-    public void setPregunta2(boolean Pregunta2) {
-        this.Pregunta2 = Pregunta2;
-    }
-    
-    public void setPregunta1_1(boolean Pregunta1_1) {
-        this.Pregunta1_1 = Pregunta1_1;
-    }
-
-    public boolean isPregunta1_2() {
-        
-        return Pregunta1_2;
-        
-    }
-
-    public void setPregunta1_2(boolean Pregunta1_2) {
-        this.Pregunta1_2 = Pregunta1_2;
-    }
-
-    public boolean isPregunta1_3() {
-        return Pregunta1_3;
-    }
-
-    public void setPregunta1_3(boolean Pregunta1_3) {
-        this.Pregunta1_3 = Pregunta1_3;
-    }
-
-    public boolean isPregunta1_4() {
-        return Pregunta1_4;
-    }
-
-    public void setPregunta1_4(boolean Pregunta1_4) {
-        this.Pregunta1_4 = Pregunta1_4;
-    }
+  
     
 //====================== METODOS ====================================    
     
     private void establecerPreguntaUno(){
-           boolean p1 = datoPagFinal.Pregunta1_1;              
-//           boolean p2 = datoPagFina1.Pregunta1_2;   
-//           boolean p3 = datoPagFina1.Pregunta1_3;   
-//           boolean p4 = datoPagFina1.Pregunta1_4;   
-
-       
+          
     }
     
     /**
@@ -457,7 +399,7 @@ public class JFpagFinal extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JFpagFinal(nombreU,datoPagFinal).setVisible(true);
+                new JFpagFinal(usuario,datoPagFinal).setVisible(true);
             }
         });
     }

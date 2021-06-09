@@ -17,7 +17,7 @@ public class JFInicio extends javax.swing.JFrame {
      Persona persona;
     public JFInicio() {
         initComponents();
-         
+         persona =new Persona();
     }
 
     @SuppressWarnings("unchecked")
@@ -142,9 +142,9 @@ public class JFInicio extends javax.swing.JFrame {
 
     private void BtnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIngresarActionPerformed
         
-        String nombre = TxtNombre.getText();
-        String identif = TxtIdentificacion.getText();
-        persona = new Persona(nombre, identif);
+        persona._Nombre = TxtNombre.getText();
+        persona._Identificaion = TxtIdentificacion.getText();
+       // persona = new Persona(nombre, identif);
         if(TxtNombre.getText().length() == 0)
         {
            JOptionPane.showMessageDialog(null, " El nombre es obligatorio ");
@@ -158,7 +158,7 @@ public class JFInicio extends javax.swing.JFrame {
                 TxtIdentificacion.requestFocus();
             }else
             {
-               pag1 = new JFPag1(nombre);
+               pag1 = new JFPag1(persona);
                vent.ocutarVentana();
                vent.abrirVentana(pag1);
             }

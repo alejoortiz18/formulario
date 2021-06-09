@@ -12,14 +12,14 @@ package formulario;
 public class JFpag2 extends javax.swing.JFrame {
 
     Ventanas ventana = new Ventanas(this);
-    static String nombreUsuario;
+    static Persona usuario;
     JFPag1 pag1;
     static Datos datoPag2;
     
-    public JFpag2(String usuario, Datos datoPag1) {
+    public JFpag2(Persona user, Datos datoPag1) {
         initComponents();
-        nombreUsuario = usuario;
-        lblNombre.setText("Hola "+nombreUsuario);
+        usuario = user;
+        lblNombre.setText("Hola "+usuario._Nombre);
         this.datoPag2=datoPag1;
     }
 
@@ -283,7 +283,7 @@ public class JFpag2 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        pag1= new JFPag1(nombreUsuario);
+        pag1= new JFPag1(usuario);
         ventana.ocutarVentana();
         ventana.abrirVentana(pag1);
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -347,7 +347,7 @@ public class JFpag2 extends javax.swing.JFrame {
             datoPag2.Pregunta3_3 =ChkOpt3.isSelected();
             datoPag2.Pregunta3_4 =ChkOpt4.isSelected();
 
-           JFpag3 pag3 = new JFpag3(nombreUsuario,datoPag2);
+           JFpag3 pag3 = new JFpag3(usuario,datoPag2);
            ventana.ocutarVentana();
            ventana.abrirVentana(pag3);
         }
@@ -386,7 +386,7 @@ public class JFpag2 extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new JFpag2(nombreUsuario,datoPag2).setVisible(true);
+            new JFpag2(usuario,datoPag2).setVisible(true);
         });
     }
 

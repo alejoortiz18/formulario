@@ -84,9 +84,9 @@ public class JFpagFinal extends javax.swing.JFrame {
     
     private void establecerPreguntaUno(){
            boolean p1 = datoPagFinal.Pregunta1_1;              
-           boolean p2 = datoPagFina1.Pregunta1_2;   
-           boolean p3 = datoPagFina1.Pregunta1_3;   
-           boolean p4 = datoPagFina1.Pregunta1_4;   
+//           boolean p2 = datoPagFina1.Pregunta1_2;   
+//           boolean p3 = datoPagFina1.Pregunta1_3;   
+//           boolean p4 = datoPagFina1.Pregunta1_4;   
 
        
     }
@@ -125,7 +125,6 @@ public class JFpagFinal extends javax.swing.JFrame {
         ChkOpt2P5 = new javax.swing.JCheckBox();
         ChkOpt4P5 = new javax.swing.JCheckBox();
         ChkOpt5P5 = new javax.swing.JCheckBox();
-        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -242,8 +241,6 @@ public class JFpagFinal extends javax.swing.JFrame {
         ChkOpt5P5.setText("Palabra Reservada");
         ChkOpt5P5.setEnabled(false);
 
-        jLabel7.setText("jLabel7");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -262,11 +259,8 @@ public class JFpagFinal extends javax.swing.JFrame {
                                     .addComponent(ChkOpt1P1))
                                 .addGap(45, 45, 45)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(ChkOpt4P1)
-                                        .addGap(73, 73, 73)
-                                        .addComponent(jLabel7))
-                                    .addComponent(ChkOpt2P1)))
+                                    .addComponent(ChkOpt2P1)
+                                    .addComponent(ChkOpt4P1)))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(Rbt1P2)
                                 .addGap(42, 42, 42)
@@ -285,7 +279,8 @@ public class JFpagFinal extends javax.swing.JFrame {
                                     .addComponent(ChkOpt4P3)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(94, 94, 94)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(88, 88, 88))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(45, 45, 45)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -312,7 +307,7 @@ public class JFpagFinal extends javax.swing.JFrame {
                                 .addComponent(ChkOpt2P5)
                                 .addGap(36, 36, 36)
                                 .addComponent(ChkOpt3P5)))))
-                .addContainerGap(113, Short.MAX_VALUE))
+                .addContainerGap(122, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(123, 123, 123)
@@ -326,21 +321,16 @@ public class JFpagFinal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(LblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ChkOpt2P1)
+                    .addComponent(ChkOpt1P1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(8, 8, 8)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(ChkOpt2P1)
-                            .addComponent(ChkOpt1P1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(8, 8, 8)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ChkOpt4P1)
-                            .addComponent(ChkOpt3P1)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(99, 99, 99)
-                        .addComponent(jLabel7)))
+                    .addComponent(ChkOpt4P1)
+                    .addComponent(ChkOpt3P1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -498,6 +488,5 @@ public class JFpagFinal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     // End of variables declaration//GEN-END:variables
 }

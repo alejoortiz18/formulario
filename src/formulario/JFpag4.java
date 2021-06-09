@@ -550,10 +550,10 @@ public class JFpag4 extends javax.swing.JFrame{
 
     private void BtnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAtrasActionPerformed
         ventana.ocutarVentana();
-        JFpag3 pag3 = new JFpag3(nombreUsuario,datoPag4);
+        //JFpag3 pag3 = new JFpag3(nombreUsuario,datoPag4);
         
         
-        ventana.abrirVentana(pag3);
+        //ventana.abrirVentana(pag3);
     }//GEN-LAST:event_BtnAtrasActionPerformed
 
     private void BtnTerminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTerminarActionPerformed
@@ -793,19 +793,19 @@ public class JFpag4 extends javax.swing.JFrame{
                 LblRespuesta1.setForeground(Color.BLACK);
             }else
             {
-                if(item=="1"){
+                if("1".equals(item)){
                     LblRespuesta1.setForeground(LblOption1.getForeground());
                 }
-                if(item=="2"){
+                if("2".equals(item)){
                     LblRespuesta1.setForeground(LblOption2.getForeground());
                 }
-                if(item=="3"){
+                if("3".equals(item)){
                     LblRespuesta1.setForeground(LblOption3.getForeground());
                 }
-                if(item=="4"){
+                if("4".equals(item)){
                     LblRespuesta1.setForeground(LblOption4.getForeground());
                 }
-                if(item=="5"){
+                if("5".equals(item)){
                     LblRespuesta1.setForeground(LblOption5.getForeground());
                 }
             }
@@ -817,20 +817,20 @@ public class JFpag4 extends javax.swing.JFrame{
                 LblRespuesta2.setForeground(Color.BLACK);
             }else
             {
-                if(item=="1")
+                if("1".equals(item))
                 {
                     LblRespuesta2.setForeground(LblOption1.getForeground());
                 }
-                if(item=="2"){
+                if("2".equals(item)){
                     LblRespuesta2.setForeground(LblOption2.getForeground());
                 }
-                if(item=="3"){
+                if("3".equals(item)){
                     LblRespuesta2.setForeground(LblOption3.getForeground());
                 }
-                if(item=="4"){
+                if("4".equals(item)){
                     LblRespuesta2.setForeground(LblOption4.getForeground());
                 }
-                if(item=="5"){
+                if("5".equals(item)){
                     LblRespuesta2.setForeground(LblOption5.getForeground());
                 }
             }
@@ -842,20 +842,20 @@ public class JFpag4 extends javax.swing.JFrame{
                 LblRespuesta3.setForeground(Color.BLACK);
             }else
             {
-                if(item=="1")
+                if("1".equals(item))
                 {
                     LblRespuesta3.setForeground(LblOption1.getForeground());
                 }
-                if(item=="2"){
+                if("2".equals(item)){
                     LblRespuesta3.setForeground(LblOption2.getForeground());
                 }
-                if(item=="3"){
+                if("3".equals(item)){
                     LblRespuesta3.setForeground(LblOption3.getForeground());
                 }
-                if(item=="4"){
+                if("4".equals(item)){
                     LblRespuesta3.setForeground(LblOption4.getForeground());
                 }
-                if(item=="5"){
+                if("5".equals(item)){
                     LblRespuesta3.setForeground(LblOption5.getForeground());
                 }
             }
@@ -867,20 +867,20 @@ public class JFpag4 extends javax.swing.JFrame{
                 LblRespuesta4.setForeground(Color.BLACK);
             }else
             {
-                if(item=="1")
+                if("1".equals(item))
                 {
                     LblRespuesta4.setForeground(LblOption1.getForeground());
                 }
-                if(item=="2"){
+                if("2".equals(item)){
                     LblRespuesta4.setForeground(LblOption2.getForeground());
                 }
-                if(item=="3"){
+                if("3".equals(item)){
                     LblRespuesta4.setForeground(LblOption3.getForeground());
                 }
-                if(item=="4"){
+                if("4".equals(item)){
                     LblRespuesta4.setForeground(LblOption4.getForeground());
                 }
-                if(item=="5"){
+                if("5".equals(item)){
                     LblRespuesta4.setForeground(LblOption5.getForeground());
                 }
             }
@@ -892,20 +892,20 @@ public class JFpag4 extends javax.swing.JFrame{
                 LblRespuesta5.setForeground(Color.BLACK);
             }else
             {
-                if(item=="1")
+                if("1".equals(item))
                 {
                     LblRespuesta5.setForeground(LblOption1.getForeground());
                 }
-                if(item=="2"){
+                if("2".equals(item)){
                     LblRespuesta5.setForeground(LblOption2.getForeground());
                 }
-                if(item=="3"){
+                if("3".equals(item)){
                     LblRespuesta5.setForeground(LblOption3.getForeground());
                 }
-                if(item=="4"){
+                if("4".equals(item)){
                     LblRespuesta5.setForeground(LblOption4.getForeground());
                 }
-                if(item=="5"){
+                if("5".equals(item)){
                     LblRespuesta5.setForeground(LblOption5.getForeground());
                 }
             }

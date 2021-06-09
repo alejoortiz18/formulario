@@ -33,7 +33,12 @@ public class JFpag3 extends javax.swing.JFrame {
         arrays = new ArrayList<>();
         nombreUsuario = usuario;
         LblNombre.setText("Hola "+usuario);
-        datosPag3 = data;
+        if(data ==null){
+            datosPag3 =new Datos();
+        }else{
+            datosPag3 =data;
+        }
+        
     }
 
     /**
@@ -152,12 +157,9 @@ public class JFpag3 extends javax.swing.JFrame {
                                 .addComponent(JCboxPag3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(BtnQuitar)
-                                        .addGap(43, 43, 43))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(BtnAgregar)
-                                        .addGap(18, 18, 18)))
+                                    .addComponent(BtnQuitar)
+                                    .addComponent(BtnAgregar))
+                                .addGap(43, 43, 43)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
@@ -202,10 +204,9 @@ public class JFpag3 extends javax.swing.JFrame {
 
     private void BtnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAgregarActionPerformed
        int itemIndex = JCboxPag3.getSelectedIndex();
-       String item =  JCboxPag3.getSelectedItem().toString();
+       String item = JCboxPag3.getSelectedItem().toString();
        int itemCount = JCboxPag3.getItemCount();
-//       DefaultListModel modelo = (DefaultListModel) JLDatos.getModel();
-//       modelo.addElement(item);
+       
        if(itemIndex == 0)
        {
            if(itemCount==1){
@@ -222,10 +223,11 @@ public class JFpag3 extends javax.swing.JFrame {
            addElementList(item);
            //CboxListRespuesta.addItem(item);
        }
+       
     }//GEN-LAST:event_BtnAgregarActionPerformed
 
     private void BtnQuitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnQuitarActionPerformed
-        int eli = JLDatos.getSelectedIndex();
+       int eli = JLDatos.getSelectedIndex();
         String item =  JLDatos.getSelectedValue();
         
         if(item==null)
@@ -237,54 +239,44 @@ public class JFpag3 extends javax.swing.JFrame {
             JCboxPag3.addItem(item); 
             list.remove(eli);
             LblMesaje.setText("Se removió el elemento " + item);
-           // deleteElementoList(item);
-            
+            //deleteElementoList(item);
         } 
     }//GEN-LAST:event_BtnQuitarActionPerformed
 
     private void BtnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSiguienteActionPerformed
-        int itemCount = list.getSize();
-        
-        public boolean p4SelectInt=false;
-    public boolean p4SelectFloat=false;
-    public boolean p4SelectDouble=false;
-    public boolean p4SelectString=false;    
-    public boolean p4SelectNumeric=false;
-    public boolean p4SelectMoney=false;
-        
-        
-        if(itemCount==0){
+       int itemCount = list.getSize();
+       if(itemCount==0){
             LblMesaje.setText("Ingresa al menos una respuesta ");
-        }else{
-            LblMesaje.setText("");
-            
-            for(int i=0; i <=arrays.size();i++)
+        }else
+       {
+           LblMesaje.setText("");
+           datosPag3.arraysP4 =arrays;
+           
+           for(int i=0; i <arrays.size();i++)
             {
-                //int,float,double,String
-                if("int".equals(arrays.get(i))){
-                    datosPag3.p4SelectInt=true;
+                if("Int".equals(arrays.get(i))){
+                    datosPag3.p4SelectInt =true;
                 }
-                if("float".equals(arrays.get(i))){
+                if("Float".equals(arrays.get(i))){
                     datosPag3.p4SelectFloat=true;
                 }
                 if("double".equals(arrays.get(i))){
-                    datosPag3.p4SelectDouble=true;
+                    datosPag3.p4SelectDouble =true;
                 }
                 if("String".equals(arrays.get(i))){
-                    datosPag3.p4SelectString=true;
+                     datosPag3.p4SelectString =true;
                 }
                 if("Numeric".equals(arrays.get(i))){
-                    datosPag3.p4SelectNumeric=true;
+                     datosPag3.p4SelectNumeric =true;
                 }
-                if("Money".equals(arrays.get(i))){
-                    datosPag3.p4SelectMoney=true;
+                 if("Money".equals(arrays.get(i))){
+                     datosPag3.p4SelectMoney =true;
                 }
-            } 
-            
+            }
             pag4 = new JFpag4(nombreUsuario,datosPag3);
             ventana.ocutarVentana();
             ventana.abrirVentana(pag4);
-        }
+       }
         
     }//GEN-LAST:event_BtnSiguienteActionPerformed
 

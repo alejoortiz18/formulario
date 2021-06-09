@@ -23,7 +23,7 @@ public class JFpag3 extends javax.swing.JFrame {
     JFpag4 pag4;
     /**
      * Creates new form JFpag3
-     * @param usuario
+     * @param user
      * @param data
      */
     public JFpag3(Persona user,Datos data) {

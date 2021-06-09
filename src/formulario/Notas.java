@@ -36,5 +36,12 @@ public class Notas{
         return ganoPregunta;
     }
    
-    
+    public boolean ifGano(String p1,String p2,String p3,String p4,String p5)
+    {
+        boolean ganoPregunta = false;
+        if("1".equals(p1) && "2".equals(p2) && "3".equals(p3) && "4".equals(p4) && "5".equals(p5)){
+           ganoPregunta =true;
+       }
+        return ganoPregunta;
+    }
 }

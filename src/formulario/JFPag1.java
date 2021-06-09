@@ -5,14 +5,13 @@
  */
 package formulario;
 
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author reisa
  */
 public class JFPag1 extends javax.swing.JFrame {
 
+    Datos dataPag1 = new Datos();
     Ventanas ventana = new Ventanas(this);
     static String nombreUsuario;  
     public JFPag1(String usuario) {
@@ -218,19 +217,26 @@ public class JFPag1 extends javax.swing.JFrame {
     }//GEN-LAST:event_ChkPreg1ActionPerformed
 
     private void BtnSiguientePag1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSiguientePag1ActionPerformed
-     
+//     this.dataPag1.Pregunta1_1 =ChkPreg1.isSelected();
+//     this.dataPag1.Pregunta1_2 =ChkPreg2.isSelected();
+//     this.dataPag1.Pregunta1_3 =ChkPreg3.isSelected();
+//     this.dataPag1.Pregunta1_4 =ChkPreg4.isSelected();
+//     JFpag2 pag2 = new JFpag2(nombreUsuario,dataPag1);
+//     
+//     ventana.ocutarVentana();
+//     ventana.abrirVentana(pag2);
+
      
         if(ChkPreg1.isSelected()||ChkPreg2.isSelected()||ChkPreg3.isSelected()||ChkPreg4.isSelected())
         {
             if(Rbt1.isSelected()||Rbt2.isSelected()||Rbt3.isSelected()||Rbt4.isSelected())
             {
-                JFpag2 pag2 = new JFpag2(nombreUsuario);
-                JFpagFinal data = new JFpagFinal(nombreUsuario);
-                data.setPregunta1_1(ChkPreg1.isSelected());
-                data.setPregunta1_2(ChkPreg2.isSelected());
-                data.setPregunta1_3(ChkPreg3.isSelected());
-                data.setPregunta1_4(ChkPreg4.isSelected());
-                data.setPregunta2(Rbt4.isSelected());
+                this.dataPag1.Pregunta1_1 =ChkPreg1.isSelected();
+                this.dataPag1.Pregunta1_2 =ChkPreg2.isSelected();
+                this.dataPag1.Pregunta1_3 =ChkPreg3.isSelected();
+                this.dataPag1.Pregunta1_4 =ChkPreg4.isSelected();
+                JFpag2 pag2 = new JFpag2(nombreUsuario,dataPag1);
+
                 ventana.ocutarVentana();
                 ventana.abrirVentana(pag2);
             }
@@ -276,10 +282,8 @@ public class JFPag1 extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new JFPag1(nombreUsuario).setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new JFPag1(nombreUsuario).setVisible(true);
         });
     }
 

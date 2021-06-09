@@ -5,7 +5,6 @@
  */
 package formulario;
 
-import java.awt.List;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
@@ -20,18 +19,21 @@ public class JFpag3 extends javax.swing.JFrame {
     ArrayList<String> arrays;
     static String nombreUsuario;
     JFpag2 pag2 ;
-    Datos data = new Datos();
+    static Datos datosPag3 ;
     JFpag4 pag4;
     /**
      * Creates new form JFpag3
+     * @param usuario
+     * @param data
      */
-    public JFpag3(String usuario) {
+    public JFpag3(String usuario,Datos data) {
         initComponents();
         list = new DefaultListModel();
         JLDatos.setModel(list);
-        arrays = new ArrayList<String>();
+        arrays = new ArrayList<>();
         nombreUsuario = usuario;
         LblNombre.setText("Hola "+usuario);
+        datosPag3 = data;
     }
 
     /**
@@ -166,8 +168,8 @@ public class JFpag3 extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(11, 11, 11)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(LblNombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(LblPag1))
                 .addGap(33, 33, 33)
                 .addComponent(jLabel1)
@@ -244,24 +246,24 @@ public class JFpag3 extends javax.swing.JFrame {
             LblMesaje.setText("Ingresa al menos una respuesta ");
         }else{
             LblMesaje.setText("");
-            data.setArraysP4(arrays);
+            datosPag3.setArraysP4(arrays);
             for(int i=0; i <arrays.size();i++)
             {
                 //int,float,double,String
-                if(arrays.get(i)=="int"){
-                    data.setP4SelectInt(true);
+                if("int".equals(arrays.get(i))){
+                    datosPag3.setP4SelectInt(true);
                 }
-                if(arrays.get(i)=="float"){
-                    data.setP4SelectFloat(true);
+                if("float".equals(arrays.get(i))){
+                    datosPag3.setP4SelectFloat(true);
                 }
-                if(arrays.get(i)=="double"){
-                    data.setP4SelectDouble(true);
+                if("double".equals(arrays.get(i))){
+                    datosPag3.setP4SelectDouble(true);
                 }
-                if(arrays.get(i)=="String"){
-                    data.setP4SelectString(true);
+                if("String".equals(arrays.get(i))){
+                    datosPag3.setP4SelectString(true);
                 }
             } 
-            pag4 = new JFpag4(nombreUsuario);
+            pag4 = new JFpag4(nombreUsuario,datosPag3);
             ventana.ocutarVentana();
             ventana.abrirVentana(pag4);
         }
@@ -269,7 +271,7 @@ public class JFpag3 extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnSiguienteActionPerformed
 
     private void BtnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAtrasActionPerformed
-        pag2= new JFpag2(nombreUsuario);
+        pag2= new JFpag2(nombreUsuario,datosPag3);
         ventana.ocutarVentana();
         ventana.abrirVentana(pag2);
     }//GEN-LAST:event_BtnAtrasActionPerformed
@@ -277,19 +279,15 @@ public class JFpag3 extends javax.swing.JFrame {
     public void addElementList(String element){
         //JOptionPane.showMessageDialog(null, "Llego el elemento "+element) ;
         arrays.add(element);
-//        for(int i=0; i <arrays.size();i++)
-//        {
-//            JOptionPane.showMessageDialog(null, "esta almacenado elemento "+arrays.get(i)) ; 
-//        } 
+
     }
     
     public void deleteElementoList(String element){
         int elementId=-1 ;
         for(int i=0; i <arrays.size();i++)
         {
-            if(arrays.get(i)==element){
-                // JOptionPane.showMessageDialog(null, "el Elemento "+element+" esta en la posición "+i) ; 
-                
+            if(arrays.get(i)==element)
+            {
                 elementId = i;
             } 
         } 
@@ -329,7 +327,7 @@ public class JFpag3 extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new JFpag3(nombreUsuario).setVisible(true);
+            new JFpag3(nombreUsuario,datosPag3).setVisible(true);
         });
     }
 

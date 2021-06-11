@@ -6,8 +6,6 @@
 package formulario;
 
 import java.awt.Color;
-import java.text.DecimalFormat;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -88,7 +86,7 @@ public final class JFpagFinal extends javax.swing.JFrame {
     
     public void cargarPuntoDos()
     {
-        boolean result = nota.ifGano(datos.Pregunta2_4);
+        boolean result = nota.ifGano(datos.Pregunta2_3);
         if(result){
          LblRespuesta2.setText("20%");
          LblRespuesta2.setForeground(Color.GREEN);

@@ -16,9 +16,11 @@ public class JFInicio extends javax.swing.JFrame {
     Ventanas vent = new Ventanas(this);
     JFPag1 pag1;
      Persona persona;
+     Datos datoInicio;
     public JFInicio() {
         initComponents();
          persona =new Persona();
+         datoInicio = new Datos();
     }
 
     @SuppressWarnings("unchecked")
@@ -160,7 +162,7 @@ public class JFInicio extends javax.swing.JFrame {
                 TxtIdentificacion.requestFocus();
             }else
             {
-               pag1 = new JFPag1(persona);
+               pag1 = new JFPag1(persona,datoInicio);
                vent.ocutarVentana();
                vent.abrirVentana(pag1);
             }

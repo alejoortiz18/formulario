@@ -30,7 +30,9 @@ public final class JFpagFinal extends javax.swing.JFrame {
     public JFpagFinal(Persona user,Datos dato) {
         initComponents();
         usuario = user;
-        LblNombre.setText("Hola "+usuario._Nombre+ ", este es su resultado."); 
+        LblNombre.setText("Hola "+usuario._Nombre+ ", este es su resultado.");        
+        LblIdentificacion.setText("ID: "+usuario._Identificaion); 
+ 
         datos = dato;
         nota = new Notas();
         cargarDatosEnVista();
@@ -96,8 +98,8 @@ public final class JFpagFinal extends javax.swing.JFrame {
         }
         Rbt1P2.setBackground(Color.RED);
         Rbt2P2.setBackground(Color.RED);
-        Rbt3P2.setBackground(Color.RED);
-        Rbt4P2.setBackground(Color.GREEN);
+        Rbt3P2.setBackground(Color.GREEN);
+        Rbt4P2.setBackground(Color.RED);
         
         if(datos.Pregunta2_1){
             Rbt1P2.setSelected(datos.Pregunta2_1);
@@ -313,6 +315,7 @@ public final class JFpagFinal extends javax.swing.JFrame {
         lblp5_3 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         LblNotaFin = new javax.swing.JLabel();
+        LblIdentificacion = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -498,6 +501,8 @@ public final class JFpagFinal extends javax.swing.JFrame {
         LblNotaFin.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         LblNotaFin.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
+        LblIdentificacion.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -516,14 +521,6 @@ public final class JFpagFinal extends javax.swing.JFrame {
                         .addGap(29, 29, 29)
                         .addComponent(LblMoneyP4)
                         .addGap(18, 18, 18))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(LblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(98, 98, 98)
-                        .addComponent(jLabel7)
-                        .addGap(42, 42, 42))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(113, 113, 113)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -580,7 +577,17 @@ public final class JFpagFinal extends javax.swing.JFrame {
                                 .addComponent(lblp5_4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(ChkOpt3P5)
                             .addComponent(ChkOpt4P5))
-                        .addGap(189, 189, 189)))
+                        .addGap(189, 189, 189))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(LblIdentificacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(LblNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE))
+                        .addGap(98, 98, 98)
+                        .addComponent(jLabel7)
+                        .addGap(42, 42, 42)))
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(LblRespuesta2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -611,11 +618,14 @@ public final class JFpagFinal extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel7)
-                        .addComponent(LblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(LblNotaFin, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17)
+                    .addComponent(LblNotaFin, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel7)
+                            .addComponent(LblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(LblIdentificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(24, 24, 24)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -659,7 +669,7 @@ public final class JFpagFinal extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(ChkOpt4P3)
                                     .addComponent(ChkOpt3P3))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 5, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(ChkOpt2P5)
@@ -815,6 +825,7 @@ public final class JFpagFinal extends javax.swing.JFrame {
     private javax.swing.JCheckBox ChkPreg3;
     private javax.swing.JCheckBox ChkPreg4;
     private javax.swing.JCheckBox LblFloatP4;
+    private javax.swing.JLabel LblIdentificacion;
     private javax.swing.JCheckBox LblIntP4;
     private javax.swing.JCheckBox LblMoneyP4;
     private javax.swing.JLabel LblNombre;

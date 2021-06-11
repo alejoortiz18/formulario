@@ -11,14 +11,15 @@ package formulario;
  */
 public class JFPag1 extends javax.swing.JFrame {
 
-    Datos dataPag1 = new Datos();
+    static Datos dataPag1;
     Ventanas ventana = new Ventanas(this);
     static Persona usuario;  
     
-    public JFPag1(Persona user) {
+    public JFPag1(Persona user, Datos dato) {
         initComponents();
         usuario = user;
         LblNombre.setText("Hola "+usuario._Nombre);
+        dataPag1 = dato;
     }
    
     @SuppressWarnings("unchecked")
@@ -283,7 +284,7 @@ public class JFPag1 extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new JFPag1(usuario).setVisible(true);
+            new JFPag1(usuario,dataPag1).setVisible(true);
         });
     }
 
